@@ -1,3 +1,27 @@
+<?php 
+
+$products = [
+    ['id' => 1,
+    'title' => 'Ноутбук',
+    'description' => 'Lorem ipsum dolor sit amet1111111111111',
+    'image' => 'https://picsum.photos/100'
+    ],
+
+    ['id' => 2,
+    'title' => 'Телефон',
+    'description' => 'Lorem ipsum dolor sit amet2222222222222',
+    'image' => 'https://picsum.photos/100'
+    ],
+
+    ['id' => 3,
+    'title' => 'Телевизор',
+    'description' => 'Lorem ipsum dolor sit amet3333333333333',
+    'image' => 'https://picsum.photos/100'
+    ],
+];
+
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -24,44 +48,21 @@
                 </tr>
             </thead>
             <tbody>
+
+            <?php foreach($products as $product) :?>
                  <tr>
-                    <td>1</td>
-                    <td><a href="./show.php">Ноутбук</a></td>
-                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td><?php echo $product['id']; ?></td>
+                    <td><a href="./show.php"><?php echo $product['title']; ?></a></td>
+                    <td><?php echo $product['description']; ?></td>
                     <td>
-                        <img src="https://picsum.photos/100" alt="">
+                        <img src="<?php echo $product['image']; ?>" alt="">
                     </td>
                     <td>
                         <a href="./edit.php" class="btn btn-warning">Изменить</a>
                         <a href="#" class="btn btn-danger" onclick="return confirm('Вы уверены?')">Удалить</a>
                     </td>
                  </tr>
-
-                 <tr>
-                    <td>2</td>
-                    <td><a href="./show.php">Ноутбук</a></td>
-                    <td>Lorem ipsum dolor sit amet.</td>
-                    <td>
-                        <img src="https://picsum.photos/100" alt="">
-                    </td>
-                    <td>
-                        <a href="#" class="btn btn-warning">Изменить</a>
-                        <a href="#" class="btn btn-danger">Удалить</a>
-                    </td>
-                 </tr>
-
-                 <tr>
-                    <td>3</td>
-                    <td><a href="./show.php">Ноутбук</a></td>
-                    <td>Lorem ipsum dolor sit amet.</td>
-                    <td>
-                        <img src="https://picsum.photos/100" alt="">
-                    </td>
-                    <td>
-                        <a href="#" class="btn btn-warning">Изменить</a>
-                        <a href="#" class="btn btn-danger">Удалить</a>
-                    </td>
-                 </tr>
+            <?php endforeach; ?>    
             </tbody>
         </table>
         </div>
